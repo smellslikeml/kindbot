@@ -1,0 +1,172 @@
+/* Here's where I got these color combos
+https://designschool.canva.com/blog/100-color-combinations/
+*/
+
+//palette 1
+$papaya: #fe7a47;
+$granola: #f5ca99;
+$strawberry: #d8412f;
+
+//palette 2
+$peach: #ffccac;
+$raspberry: #ed5752;
+$strawberries: #cb0000;
+
+//palette 3
+$golden: #efb509;
+$lemondrop: #ffec5c;
+$ivory: #f1f3ce;
+
+//palette 4
+$turquoise: #31a2ac;
+$periwinkie: #d0e1f9;
+$aquamarine: #98dbc6;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: table;
+  margin: 0;
+}
+
+.container {
+  height: 50%;
+  width: 25%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+
+  .title {
+    text-align: center;
+    padding: 0 0 30px;
+    margin: 0;
+  }
+
+  &:first-of-type {
+    background-color: #fe7a47;
+
+    .rail {
+      stroke: #f5ca99;
+    }
+
+    .progress {
+      stroke: #d8412f;
+    }
+
+    .percentage {
+      color: #f5ca99;
+    }
+  }
+
+  &:nth-of-type(2) {
+    background-color: #ed5752;
+
+    .rail {
+      stroke: #ffccac;
+    }
+
+    .progress {
+      stroke: #cb0000;
+    }
+
+    .icon {
+      color: #cb0000;
+    }
+  }
+
+  &:nth-of-type(3) {
+    background-color: #f1f3ce;
+
+    .rail {
+      stroke: #ffec5c;
+    }
+
+    .progress {
+      stroke: #efb509;
+    }
+
+    .icon {
+      color: #efb509;
+    }
+  }
+
+  &:nth-of-type(4) {
+    background-color: #98dbc6;
+
+    .rail {
+      stroke: #d0e1f9;
+    }
+
+    .progress {
+      stroke: #31a2ac;
+    }
+
+    .icon {
+      color: #31a2ac;
+    }
+  }
+}
+
+.gauge-container {
+  display: inline-block;
+  position: relative;
+  width: 70%;
+
+  .gauge {
+    position: relative;
+    display: block;
+
+    circle {
+      stroke-width: 15;
+    }
+
+    .rail {
+      fill: transparent;
+    }
+
+    .progress {
+      fill: transparent;
+      stroke-linecap: round;
+    }
+  }
+
+  .center {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 300;
+
+    &.percentage {
+      font-size: 2vw;
+    }
+
+    &.icon {
+      font-size: 3vw;
+    }
+
+    .percentSymbol {
+      font-size: 0.8em;
+    }
+
+    .value {
+      font-size: 1.8em;
+    }
+  }
+}

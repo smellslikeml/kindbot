@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask import render_template, Response
 app=Flask(__name__)
@@ -12,7 +13,10 @@ def dashboard():
 
 @app.route('/camera')
 def camera():
-    return render_template('camera.html')
+    pic_lst = ['../static/images/' + str(x) for x in os.listdir("/var/www/FlaskApps/kindbot/static/images")]
+    pic_lst.sort()
+    pic_lst = pic_lst[::-1]
+    return render_template('camera.html', pic_lst=pic_lst)
 
 @app.route('/automate')
 def automate():

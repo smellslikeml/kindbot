@@ -1,0 +1,141 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/core.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg.js"></script>
+
+<style>
+body {
+  background: #fff;
+}
+
+.metric {
+  padding: 10%;
+}
+
+.metric svg {
+  max-width: 100%;
+}
+
+.metric path {
+  stroke-width: 75;
+  stroke: #ecf0f1;
+  fill: none;
+}
+
+.metric text {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.metric.participation path.data-arc {
+  stroke: #3498db;
+}
+
+.metric.participation text {
+  fill: #3498db;
+}
+
+.metric.completion path.data-arc {
+  stroke: #27ae60;
+}
+
+.metric.completion text {
+  fill: #27ae60;
+}
+
+.metric.blocked path.data-arc {
+  stroke: #e74c3c;
+}
+
+.metric.blocked text {
+  fill: #e74c3c;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-4">
+      <div class="metric participation" data-ratio=".95">
+        <svg viewBox="0 0 1000 500">
+            <path d="M 950 500 A 450 450 0 0 0 50 500"></path>
+            <text class='percentage' text-anchor="middle" alignment-baseline="middle" x="500" y="300" font-size="140" font-weight="bold">0%</text>
+            <text class='title' text-anchor="middle" alignment-baseline="middle" x="500" y="450" font-size="90" font-weight="normal">Participation</text>
+          </svg>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <div class="metric completion" data-ratio=".72">
+        <svg viewBox="0 0 1000 500">
+            <path d="M 950 500 A 450 450 0 0 0 50 500"></path>
+            <text class='percentage' text-anchor="middle" alignment-baseline="middle" x="500" y="300" font-size="140" font-weight="bold">0%</text>
+            <text class='title' text-anchor="middle" alignment-baseline="middle" x="500" y="450" font-size="90" font-weight="normal">Goal completion</text>
+          </svg>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <div class="metric blocked" data-ratio=".27">
+        <svg viewBox="0 0 1000 500">
+            <path d="M 950 500 A 450 450 0 0 0 50 500"></path>
+            <text class='percentage' text-anchor="middle" alignment-baseline="middle" x="500" y="300" font-size="140" font-weight="bold">0%</text>
+            <text class='title' text-anchor="middle" alignment-baseline="middle" x="500" y="450" font-size="90" font-weight="normal">Blockers</text>
+          </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<script>
+	$(function() {
+
+	  var polar_to_cartesian, svg_circle_arc_path, animate_arc;
+
+	  polar_to_cartesian = function(cx, cy, radius, angle) {
+	    var radians;
+	    radians = (angle - 90) * Math.PI / 180.0;
+	    return [Math.round((cx + (radius * Math.cos(radians))) * 100) / 100, Math.round((cy + (radius * Math.sin(radians))) * 100) / 100];
+	  };
+
+	  svg_circle_arc_path = function(x, y, radius, start_angle, end_angle) {
+	    var end_xy, start_xy;
+	    start_xy = polar_to_cartesian(x, y, radius, end_angle);
+	    end_xy = polar_to_cartesian(x, y, radius, start_angle);
+	    return "M " + start_xy[0] + " " + start_xy[1] + " A " + radius + " " + radius + " 0 0 0 " + end_xy[0] + " " + end_xy[1];
+	  };
+
+	  animate_arc = function(ratio, svg, perc) {
+	    var arc, center, radius, startx, starty;
+	    arc = svg.path('');
+	    center = 500;
+	    radius = 450;
+	    startx = 0;
+	    starty = 450;
+	    return Snap.animate(0, ratio, (function(val) {
+	      var path;
+	      arc.remove();
+	      path = svg_circle_arc_path(500, 500, 450, -90, val * 180.0 - 90);
+	      arc = svg.path(path);
+	      arc.attr({
+		class: 'data-arc'
+	      });
+	      perc.text(Math.round(val * 100) + '%');
+	    }), Math.round(2000 * ratio), mina.easeinout);
+	  };
+
+	  $('.metric').each(function() {
+	    var ratio, svg, perc;
+	    ratio = $(this).data('ratio');
+	    svg = Snap($(this).find('svg')[0]);
+	    perc = $(this).find('text.percentage');
+	    animate_arc(ratio, svg, perc);
+	  });
+	});
+	</script>
+
+</body>
+</html>
