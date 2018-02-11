@@ -40,8 +40,9 @@
 			<div class="main">
 			    <div class="wrapper">
 			      <div class="one">
-
-				      <div class="metric participation" data-ratio=".35">
+                                    {% set humid = '.' + hum %}
+                                    {% set tempp = '.' + temp %}
+				      <div class="metric participation" data-ratio="{{humid}}">
 					<svg viewBox="0 0 1000 500">
 					    <path d="M 950 500 A 450 450 0 0 0 50 500"></path>
 					    <text class='percentage' text-anchor="middle" alignment-baseline="middle" x="500" y="300" font-size="140" font-weight="bold">0%</text>
@@ -55,7 +56,7 @@
                               </div>
 			      <div class="three">
 
-				      <div class="metric blocked" data-ratio=".74">
+				      <div class="metric blocked" data-ratio="{{tempp}}">
 					<svg viewBox="0 0 1000 500">
 					    <path d="M 950 500 A 450 450 0 0 0 50 500"></path>
 					    <text class='degree' text-anchor="middle" alignment-baseline="middle" x="500" y="300" font-size="140" font-weight="bold">0&deg;</text>
@@ -81,7 +82,7 @@
 			      <div class="six">
                                  <br>
                                  <h3 style="text-align:right;">Lux Reading</h3>
-                                 <p style="text-align:right;">42,000</p>
+                                 <p style="text-align:right;">{{ lux }}</p>
                               </div>
 			    </div>
 			</div>

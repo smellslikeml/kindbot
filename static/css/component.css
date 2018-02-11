@@ -29,7 +29,8 @@
 
 /* grid item */
 .cbp-ig-grid li {
-	width: 33%;
+	/*width: 33%;*/
+	width: 50%;
 	float: left;
 	height: 420px;
 	text-align: center;
@@ -37,12 +38,15 @@
 }
 
 /* we are using a combination of borders and box shadows to control the grid lines */
-.cbp-ig-grid li:nth-child(-n+3){
+/*.cbp-ig-grid li:nth-child(-n+3){*/
+.cbp-ig-grid li:nth-child(-n+2){
 	border-top: none;
 }
 
-.cbp-ig-grid li:nth-child(3n-1),
-.cbp-ig-grid li:nth-child(3n-2) {
+/*.cbp-ig-grid li:nth-child(3n-1),
+.cbp-ig-grid li:nth-child(3n-2) {*/
+.cbp-ig-grid li:nth-child(2n-1),
+.cbp-ig-grid li:nth-child(2n-2) {
 	box-shadow: 1px 0 0 #ddd;
 }
 
