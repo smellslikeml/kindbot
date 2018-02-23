@@ -14,6 +14,7 @@ on the hardware setup and leave us a thumbs up if you're digging it!*
 * [Adafruit lux meter](https://www.adafruit.com/product/439)
 * [DHT11 temperature and humidity meter](https://www.adafruit.com/product/386)
 * [USB camera](https://www.amazon.com/gp/product/B01N07OHYF/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
+
 If you opt for a cheaper usb camera, your cost should be < $80
 
 For the more advanced features, you'll also need:
