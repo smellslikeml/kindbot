@@ -40,7 +40,7 @@ def create_rotating_log(path):
  
     # add a rotating handler
     handler = RotatingFileHandler(path, maxBytes=20,
-                                  backupCount=5)
+                                  backupCount=24)
     logger.addHandler(handler)
  
     while True:
@@ -50,12 +50,14 @@ def create_rotating_log(path):
             temp = 32 + (9 / 5) * result.temperature
             humidity = result.humidity
 	    lux = lux_reading()
-	    logger.info("Time:{}, Humidity:{}, Temperature:{}, Lumens:{}".format(tm_stmp, humidity, temp, lux))
-	    time.sleep(120)
+	    dict_str = {'Time':tm_stmp, 'Humidity':humidity, 'Temperature':temp, 'Lumens':lux}
+        dict_str = str(dict_str)
+	    logger.info(dict_str)
+	    time.sleep(3600)
         else:
             pass
  
 #----------------------------------------------------------------------
 if __name__ == "__main__":
-    log_file = "/home/pi/kindbot/app/kindbot.log"
+    log_file = "/home/pi/kindbot/app/logs/kindbot.log"
     create_rotating_log(log_file)

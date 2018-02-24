@@ -14,10 +14,11 @@ def home():
 
 @app.route('/dashboard')
 def dashboard():
-    gen = reverse_readline('kindbot_log.txt')
-    last_line = next(gen)
-    _, temp, hum, lux = last_line.split(',')
-    return render_template('dashboard.html', temp=temp, hum=hum, lux=lux)
+    with open('/home/pi/kindbot/app/logs/kindbot.log', 'rb') as fl:
+        last_rd = fl.read()
+    read_dict = eval(last_rd)
+    return render_template('dashboard.html', temp=read_dict['Temperature'], hum=read_dict['Humidity'],
+    lux=read_dict['Lumens'])
 
 @app.route('/camera')
 def camera():
@@ -44,11 +45,10 @@ def settings():
 @ask.intent('stats')
 def stats():
     """ Returns last reading """
-    gen = reverse_readline('kindbot_log.txt')   #our sensor reading logs
-    last_line = next(gen)
-    tm, temp, hum, lux = last_line.split(',')
-    tm = tm.split(' ')[1]
-    speech_text = 'Last reading was taken at %s. The temperature is %s degrees Fahrenheit and humidity is at %s percent. The lux levels are %s.' % (tm, temp, hum, lux)
+    with open('/home/pi/kindbot/app/logs/kindbot.log', 'rb') as fl:
+        last_rd = fl.read()
+    read_dict = eval(last_rd)
+    speech_text = 'Last reading was taken at %s. The temperature is %s degrees Fahrenheit and humidity is at %s percent. The lux levels are %s.' % (read_dict['Time'], read_dict['Temperature'],read_dict['Humidity'], read_dict['Lumens'])
     return statement(speech_text)
 
 
