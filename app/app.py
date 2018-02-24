@@ -1,4 +1,4 @@
-import os
+import os, glob
 import serial
 from flask import Flask
 from flask import render_template, Response, request
@@ -6,6 +6,16 @@ from flask_ask import Ask, statement, session
 
 app=Flask(__name__)
 ask = Ask(app, '/')
+
+def all_logs():
+    log_lst = []
+    lst = sorted(glob.glob('/home/pi/kindbot/app/logs/kindbot.*'), reverse=True)
+    for fl in lst:
+        with open(fl, 'r') as f:
+            dict_str = f.read()
+            log_lst.append(eval(dict_str))
+    return log_lst
+
 
 @app.route('/')
 def home():
@@ -16,8 +26,12 @@ def dashboard():
     with open('/home/pi/kindbot/app/logs/kindbot.log', 'rb') as fl:
         last_rd = fl.read()
     read_dict = eval(last_rd)
+    all_l = all_logs()
+    time_data = [str(x['Time']) for x in all_l]
+    temp_data= [int(x['Temperature']) for x in all_l]
+    humid_data = [int(x['Humidity']) for x in all_l]
     return render_template('dashboard.html', temp=str(read_dict['Temperature']), hum=str(read_dict['Humidity']),
-    lux=str(read_dict['Lumens']))
+    lux=str(read_dict['Lumens']), time_data=time_data, temp_data=temp_data, humid_data=humid_data)
 
 @app.route('/camera')
 def camera():
