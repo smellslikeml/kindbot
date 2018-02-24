@@ -14,7 +14,7 @@ def home():
 
 @app.route('/dashboard')
 def dashboard():
-    gen = reverse_readline('sensor_log.txt')
+    gen = reverse_readline('kindbot_log.txt')
     last_line = next(gen)
     _, temp, hum, lux = last_line.split(',')
     return render_template('dashboard.html', temp=temp, hum=hum, lux=lux)
@@ -44,7 +44,7 @@ def settings():
 @ask.intent('stats')
 def stats():
     """ Returns last reading """
-    gen = reverse_readline('sensor_log.txt')   #our sensor reading logs
+    gen = reverse_readline('kindbot_log.txt')   #our sensor reading logs
     last_line = next(gen)
     tm, temp, hum, lux = last_line.split(',')
     tm = tm.split(' ')[1]
@@ -75,7 +75,7 @@ def photo():
     pic_lst = ['/static/images/' + str(x) for x in os.listdir("static/images")]
     pic_lst.sort()
     last_pic = pic_lst[-1]
-    pic_url = 'https://823a3254.ngrok.io' + last_pic
+    pic_url = <your URL string> + last_pic
     speech_text = 'Here is your grow!'
     return statement(speech_text).display_render(template='BodyTemplate7', title='kindbot', backButton='HIDDEN', token=None, background_image_url=pic_url, text=None, hintText=None)
 
