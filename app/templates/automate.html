@@ -31,9 +31,6 @@
 		  $(document).ready(function() {
 		    $("#datepicker").datepicker();
 		  });
-		  $(document).ready(function() {
-		    $("#datepicker2").datepicker();
-		  });
 		  </script>
 
 
@@ -71,58 +68,51 @@
 				  <div class="mdl-cell mdl-cell--5-col mdl-cell--5-col-tablet">
                                     <h3>Schedule your drip irrigation</h3>
                                      <form action="{{ url_for('automate') }}" method="post" id="form1">
-                                       <span>From:   </span><input id="datepicker" name="from" size="10"/>
-                                       <span>To:   </span><input id="datepicker2" name="to" size="10"/>
+                                       <span>Date:   </span><input id="datepicker" name="date" size="10"/>
                                        <br>
                                      <h4>Repeat every:  </h4>
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-					  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="monday">
+					  <input type="checkbox" id="monday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Monday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
-					  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="tuesday">
+					  <input type="checkbox" id="tuesday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Tuesday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
-					  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="wednesday">
+					  <input type="checkbox" id="wednesday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Wednesday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
-					  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="thursday">
+					  <input type="checkbox" id="thursday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Thursday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5">
-					  <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="friday">
+					  <input type="checkbox" id="friday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Friday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6">
-					  <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="saturday">
+					  <input type="checkbox" id="saturday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Saturday</span>
 					</label>
 
-					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7">
-					  <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="sunday">
+					  <input type="checkbox" id="sunday" class="mdl-checkbox__input">
 					  <span class="mdl-checkbox__label">Sunday</span>
 					</label>
 
                                      <h4>Set Time:  </h4>
-                                        <span>From: </span>
+                                        <span>Time: </span>
 					<div class="mdl-textfield mdl-js-textfield" width="20px">
-					    <input class="mdl-textfield__input" type="text" id="from_time">
-					    <label class="mdl-textfield__label" for="from_time">example: 6:00 am</label>
+					    <input class="mdl-textfield__input" type="text" id="time">
+					    <label class="mdl-textfield__label" for="time">example: 17:00</label>
 					</div>
                                         <br>
-
-                                        <span>To:    </span>
-					<div class="mdl-textfield mdl-js-textfield" width="20px">
-					    <input class="mdl-textfield__input" type="text" id="to_time">
-					    <label class="mdl-textfield__label" for="to_time">example: 7:00 am</label>
-					</div>
                                         <br>
 
                                         <center><div>
@@ -157,63 +147,8 @@
 	    navLinks: true, // can click day/week names to navigate views
 	    editable: true,
 	    eventLimit: true, // allow "more" link when too many events
-	    events: [
-	      {
-		title: "Test Drip",
-		start: "2018-02-01"
-	      },
-	      {
-		title: "Long Event",
-		start: "2016-12-07",
-		end: "2016-12-10"
-	      },
-	      {
-		id: 999,
-		title: "Repeat Event",
-		start: "2018-02-09T16:00:00"
-	      },
-	      {
-		id: 999,
-		title: "Repeating Event",
-		start: "2018-02-16T16:00:00"
-	      },
-	      {
-		title: "Conference",
-		start: "2016-12-11",
-		end: "2016-12-13"
-	      },
-	      {
-		title: "Meeting",
-		start: "2016-12-12T10:30:00",
-		end: "2016-12-12T12:30:00"
-	      },
-	      {
-		title: "Lunch",
-		start: "2016-12-12T12:00:00"
-	      },
-	      {
-		title: "Meeting",
-		start: "2016-12-12T14:30:00"
-	      },
-	      {
-		title: "Happy Hour",
-		start: "2016-12-12T17:30:00"
-	      },
-	      {
-		title: "Test drip",
-		start: "2018-02-12T20:00:00"
-	      },
-	      {
-		title: "Birthday Party",
-		start: "2016-12-13T07:00:00"
-	      },
-	      {
-		title: "Click for Google",
-		url: "https://google.com/",
-		start: "2016-12-28"
-	      }
-	    ]
-	  });
+	    events: {{ events|safe }}
+        });
 	});
 
      </script>

@@ -42,11 +42,26 @@ def camera():
 
 @app.route('/automate', methods=['POST', 'GET'])
 def automate():
-#    if request.form['button'] == "on":
-#        print 'yass'
-#    elif request.form['button'] == "off":
-#        print 'poo'
-    return render_template('automate.html')
+    if os.path.exist("/home/pi/kindbot/app/logs/schedule_app.logs"):
+        with open("/home/pi/kindbot/app/logs/schedule_app.logs", "rb") as fl:
+            event_lst = fl.readlines()
+        events = [{'id': x['id'], 'start': x['date']+'T'+x['time']}]
+    else:
+        events = []
+    if request.method == 'POST':
+        date = request.form['date']
+        time = request.form['time']
+        monday = request.form.get("monday") != None
+        tuesday = request.form.get("tuesday") != None
+        wednesday = request.form.get("wednesday") != None
+        thursday = request.form.get("thursday") != None
+        friday = request.form.get("friday") != None
+        saturday = request.form.get("saturday") != None
+        sunday = request.form.get("sunday") != None
+        with open('/home/pi/kindbot/app/logs/schedule_app.logs', 'a') as fl:
+            schedule_dict = {'date': date, 'time': time, 'repeat': {'monday':monday, 'tuesday': tuesday, 'wednesday': wednesday, 'thursday':thursday, 'friday': friday, 'saturday': saturday, 'sunday': sunday}, 'id'=str(random.randint(1,10000))}
+            fl.write(str(schedule_dict) + '\n')
+    return render_template('automate.html', events=events)
 
 @app.route('/settings')
 def settings():
