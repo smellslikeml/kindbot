@@ -50,7 +50,7 @@ def create_rotating_log(path):
             temp = 32 + (9 / 5) * result.temperature
             humidity = result.humidity
 	    lux = lux_reading()
-	    logger.info("Time: {}, Humidity: {}, Temperature: {}, Lumens: {}".format(tm_stmp, humidity, temp, lux))
+	    logger.info("Time:{}, Humidity:{}, Temperature:{}, Lumens:{}".format(tm_stmp, humidity, temp, lux))
 	    time.sleep(120)
         else:
             pass
