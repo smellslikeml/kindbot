@@ -16,8 +16,8 @@ def dashboard():
     with open('/home/pi/kindbot/app/logs/kindbot.log', 'rb') as fl:
         last_rd = fl.read()
     read_dict = eval(last_rd)
-    return render_template('dashboard.html', temp=read_dict['Temperature'], hum=read_dict['Humidity'],
-    lux=read_dict['Lumens'])
+    return render_template('dashboard.html', temp=str(read_dict['Temperature']), hum=str(read_dict['Humidity']),
+    lux=str(read_dict['Lumens']))
 
 @app.route('/camera')
 def camera():
