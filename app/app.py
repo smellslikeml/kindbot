@@ -3,7 +3,6 @@ import serial
 from flask import Flask
 from flask import render_template, Response, request
 from flask_ask import Ask, statement, session
-from reverse_read import reverse_readline
 
 app=Flask(__name__)
 ask = Ask(app, '/')
@@ -82,6 +81,9 @@ def photo():
 
 @ask.intent('schedule')
 def schedule(date,time):
+    with open('/home/pi/kindbot/app/logs/schedule.logs', 'a') as fl:
+        ln = str(date) + ',' + str(time) + '\n'
+        fl.write(ln)
     return statement("Ok. I've got it scheduled for {} at {}".format(date, time))
 
 
