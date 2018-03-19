@@ -59,6 +59,9 @@ sed -i 's/self.offset = 16/self.offset = 20/g' /home/pi/darkflow/darkflow/utils/
 python3 setup.py build_ext --inplace
 sudo pip3 install .
 
+echo 'Installing picam dependencies'
+cd /home/pi/
+sudo apt-get install python-picamera
 
 echo 'DONE!'
 
