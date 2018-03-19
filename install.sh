@@ -44,15 +44,17 @@ sudo apt-get install python3-pip python3-dev -y
 sudo apt-get install libblas-dev liblapack-dev python-dev libatlas-base-dev gfortran python-setuptools -y
 cd ~/
 echo 'Installing TensorFlow now...'
-wget http://ci.tensorflow.org/view/Nightly/job/nightly-pi-zero-python3/lastSuccessfulBuild/artifact/output-artifacts/tensorflow-1.6.0-cp34-none-any.whl
-sudo pip3 install tensorflow-1.6.0-cp34-none-any.whl
+wget http://ci.tensorflow.org/view/Nightly/job/nightly-pi-zero-python3/38/artifact/output-artifacts/tensorflow-1.4.0-cp34-none-any.whl
+sudo pip3 install tensorflow-1.4.0-cp34-none-any.whl
 echo 'DONE installing TensorFlow!'
 echo
 
 echo 'Installing darkflow'
+sleep 10
+cd /home/pi/
 sudo pip3 install Cython
 git clone https://github.com/thtrieu/darkflow.git
-cd darkflow
+cd /home/pi/darkflow
 sed -i 's/self.offset = 16/self.offset = 20/g' /home/pi/darkflow/darkflow/utils/loader.py
 python3 setup.py build_ext --inplace
 sudo pip3 install .
