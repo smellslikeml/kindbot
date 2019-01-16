@@ -1,7 +1,7 @@
 # Kindbot: Home Gardening meets Home Automation
 
 The Kindbot garden controller maintains ideal environmental conditions for indoor grow spaces using inexpensive hardware leveraging the state-of-the-art in embedded AI.
-![Imgur](https://i.imgur.com/3rnUhnL.gifv)
+![Imgur](https://i.imgur.com/3rnUhnL.gif)
 
 ### Features
  * RL temperature control on device
