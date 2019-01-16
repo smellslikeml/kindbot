@@ -1,7 +1,7 @@
 # Kindbot: Home Gardening meets Home Automation
 
 The Kindbot garden controller maintains ideal environmental conditions for indoor grow spaces using inexpensive hardware leveraging the state-of-the-art in embedded AI.
-![kindbot](http://kindbot.io/images/kindbot_an_intro.gif)
+![Imgur](https://i.imgur.com/3rnUhnL.gifv)
 
 ### Features
  * RL temperature control on device
@@ -49,7 +49,7 @@ Note that to insert the camera mount nut, you will need to pause the print of th
 
 Follow the wiring diagram to solder the environmental sensor breakout to the GPIO pins of the raspberry pi and connect the camera using the ribbon cable.
 Insert this assembly into the Kindbot case and seal with the machine screws.
-![assemble](http://kindbot.io/images/assemble_kindbot.gif)
+![Imgur](https://i.imgur.com/2KSgP50.gifv)
 
 Connect the mini-HDMI adapter and a monitor, open a terminal, and go through the installation.
 
