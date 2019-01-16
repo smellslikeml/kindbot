@@ -1,6 +1,7 @@
 # Kindbot: Home Gardening meets Home Automation
 
 The Kindbot garden controller maintains ideal environmental conditions for indoor grow spaces using inexpensive hardware leveraging the state-of-the-art in embedded AI.
+
 ![kindbot](https://github.com/mayorquinmachines/kindbot/blob/master/kindbot_an_intro.gif?raw=true)
 
 ### Features
