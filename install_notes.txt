@@ -1,0 +1,75 @@
+# sudo apt-get install vim
+# sudo apt-get install git
+# sudo apt-get install cmake
+# sudo apt-get install python3-pip
+# sudo apt-get install python3-picamera
+# sudo raspi-config
+# sudo vim /etc/dphys-swapfile
+# sudo vim /boot/config.txt
+# dtparam=act_led_trigger=none
+# dtparam=act_led_activelow=on
+# disable_camera_led=1
+# mkdir img/
+# mkdir img/stream/
+# mkdir img/timelapse
+# mkdir data
+# mkdir data/prc_log
+# mkdir data/sec_log
+# mkdir data/sql
+# mkdir tools
+# cd tools/
+# git clone https://github.com/GadgetReactor/pyHS100.git
+# cd pyHS100
+# pip3 install -r requirements.txt
+# python3 setup.py install
+# if the setup.py install fails at the click-datetime step with a complaint about not finding a README.md, you may delete the click-datetime after having successfully pip installing
+# sudo apt-get install libsqlite3-dev
+# pip install pysqlite
+# git clone https://github.com/adafruit/Adafruit_Python_BME280.git into tools/
+# mkdir models
+# tensorflow
+# https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
+# install tensorflow: https://github.com/lhelontra/tensorflow-on-arm/releases
+# wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.12.0/tensorflow-1.12.0-cp35-none-linux_armv6l.whl
+# pip3 install tensorflow-1.12.0-cp35-none-linux_armv6l.whl
+# sudo apt-get install libatlas3-base libsz2 libharfbuzz0b libtiff5 libjasper1 libilmbase12 libopenexr22 libilmbase12 libgstreamer1.0-0 libavcodec57 libavformat57 libavutil55 libswscale4 libqtgui4 libqt4-test libqtcore4
+# sudo apt-get install libatlas-base-dev
+# sudo apt-get install libxml2-dev libxslt-dev python-dev
+# sudo apt-get install python3-lxml python-lxml 
+# sudo pip3 install pillow lxml cython
+# sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+# sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# sudo apt-get install libxvidcore-dev libx264-dev
+# sudo apt-get install qt4-dev-tools
+# pip3 install opencv-python
+# sudo apt-get install autoconf automake libtool curl
+# get the new protocol buffer release: https://github.com/protocolbuffers/protobuf/releases
+# wget https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz
+# tar -zxvf protobuf-all-3.6.1.tar.gz
+# cd protobuf-3.6.1/
+# ./configure
+# make
+# sudo make install
+# cd python
+# echo "export LD_LIBRARY_PATH=../src/.libs" >> /home/pi/.bashrc
+# python3 setup.py build --cpp_implementation 
+# python3 setup.py test --cpp_implementation
+# sudo python3 setup.py install --cpp_implementation
+# need to add env vars to .bashrc
+# echo "export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp" >> /home/pi/.bashrc
+# echo "export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=3" >> /home/pi/.bashrc
+# echo "export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim" >> /home/pi/.bashrc
+# sudo ldconfig
+# mkdir tensorflow1
+# cd tensorflow1
+# git clone --recurse-submodules https://github.com/tensorflow/models.git
+# cd /home/pi/tensorflow1/models/research
+# protoc object_detection/protos/*.proto --python_out=.
+# add trained model here, by default, can use something like:
+# wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+# tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+
+
+
+
+

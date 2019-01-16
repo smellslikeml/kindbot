@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo python network.py
+
 echo 'Updating...'
 sudo apt-get update -y
 cd ~/

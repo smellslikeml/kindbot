@@ -1,33 +1,84 @@
-# Kindbot: Smart Home Gardening
+# Kindbot: Home Gardening meets Home Automation
 
-Now that the cannabis industry is booming and prices are soaring, our goal is to make home growing more
-accessible to the everyday grower. Kindbot packs an app, sensors, voice-control, and state-of-the-art computer vision to
-eliminate guess work & maximize yields. Using custom object recognition models, Kindbot can diagnose potential problems
-in the crop (ie. yellow flowers, over/under watering) and provide harvest predictions. For the novice without years of
-experience, Kindbot helps provide domain knowledge to ensure a successful crop.
+The Kindbot garden controller maintains ideal environmental conditions for indoor grow spaces using inexpensive hardware leveraging the state-of-the-art in embedded AI.
+![kindbot](http://kindbot.io/images/kindbot_an_intro.gif)
 
-*Check out our* [Hackster post](https://www.hackster.io/kindbot/kindbot-smart-home-gardening-4c218a) *for more details
-on the hardware setup and leave us a thumbs up if you're digging it!*
+### Features
+ * RL temperature control on device
+ * Log environmental data and visualize grow stats
+ * Control and schedule appliances via smart plugs
+ * Monitor plant health via [Buddy diagnostics](https://buddy.kindbot.io)
+
+Learn more about Kindbot by visiting:
+ * [Kindbot.io](http://kindbot.io/)
+ * [Hackster](https://www.hackster.io/kindbot/kindbot-smart-home-gardening-4c218a)
+ * [Instagram](https://www.instagram.com/kindbot/)
+
+# Dependencies
+
+
+## Tools
+ * Soldering Iron
+ * 3D printer
+
 
 ## Hardware
-* [Raspberry Pi 3](https://www.amazon.com/Raspberry-Pi-RASPBERRYPI3-MODB-1GB-Model-Motherboard/dp/B01CD5VC92/ref=sr_1_3?s=pc&ie=UTF8&qid=1519413510&sr=1-3&keywords=raspberry+pi+3&dpID=51Vt9f26ryL&preST=_SX300_QL70_&dpSrc=srch)
-* [Adafruit lux meter](https://www.adafruit.com/product/439)
-* [DHT11 temperature and humidity meter](https://www.adafruit.com/product/386)
-* [USB camera](https://www.amazon.com/gp/product/B01N07OHYF/ref=oh_aui_detailpage_o01_s01?ie=UTF8&psc=1)
-
-If you opt for a cheaper usb camera, your cost should be < $80
-
-For the more advanced features, you'll also need:
-* [Arduino Micro](https://www.amazon.com/gp/product/B00AFY2S56/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)
-* [Amazon Echo Device](https://www.amazon.com/Amazon-VN94DQ-Echo-Spot-Black/dp/B073SQYXTW/ref=sr_1_1?s=electronics&ie=UTF8&qid=1519413690&sr=1-1&keywords=alexa+echo+spot&dpID=41%252BK4pC74XL&preST=_SY300_QL70_&dpSrc=srch)
-* [Iot Relay](https://www.adafruit.com/product/2935) (can build your own too!)
-
+ * [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero/)
+ * [BME280 temperature/humidity sensor](https://www.adafruit.com/product/2652)
+ * [TP-Link Kasa HS300 SmartStrip](https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wi-fi-power-strip-hs300)
+ * 8 GB MicroSD card
+ * picamera
+ * Standard USB to micro-USB power supply
+ * 1/4 inch hex nut
+ * 4 - 3mm phillips head machine screws
+ * Mini HDMI adapter and Monitor
 
 ## Software
-* [Tensorflow for raspberry pi](https://github.com/samjabrahams/tensorflow-on-raspberry-pi)
-* [Flask](http://flask.pocoo.org/)
-* [Flask-Ask](http://flask-ask.readthedocs.io/en/latest/)
-* [Amazon Alexa Skills](https://developer.amazon.com/alexa-skills-kit)
-* [DHT11 repo](https://github.com/szazo/DHT11_Python)
-* [Lux meter repo](https://github.com/lexruee/tsl2561)
+ * [Tensorflow for raspberry pi](https://github.com/samjabrahams/tensorflow-on-raspberry-pi)
+ * [Adafruit BME280 Library](https://github.com/adafruit/Adafruit_BME280_Library)
+ * [pyHS100](https://github.com/GadgetReactor/pyHS100)
+ * [Flask](http://flask.pocoo.org/)
+ * [pysqlite](https://pypi.org/project/pysqlite/)
+ * [opencv](https://pypi.org/project/opencv-python/)
 
+# Getting Started
+
+Use the associated CAD files to 3D print the Kindbot case. 
+Note that to insert the camera mount nut, you will need to pause the print of the Kindbot case top/face roughly 25% through to drop in the nut.
+![wiring diagram](http://kindbot.io/images/kindbot_diagram.png)
+
+Follow the wiring diagram to solder the environmental sensor breakout to the GPIO pins of the raspberry pi and connect the camera using the ribbon cable.
+Insert this assembly into the Kindbot case and seal with the machine screws.
+![assemble](http://kindbot.io/images/assemble_kindbot.gif)
+
+Connect the mini-HDMI adapter and a monitor, open a terminal, and go through the installation.
+
+## Installation
+
+Change the config.ini file to reflect the wifi network name and password.
+Configure the additional parameters to schedule events, change temperature setpoints, etc.
+You may decide to set a [static IP](https://www.modmypi.com/blog/tutorial-how-to-give-your-raspberry-pi-a-static-ip-address) to simplify access to the web server.
+
+Run the install bash script.
+```
+bash install.sh
+```
+
+## Setup
+
+Connect appliances like fans, AC units, irrigation pumps, and lights to the smart strip according to the configuration of plugs you set in the config.ini file.
+
+Mount the Kindbot device in your grow space using standard camera mounting hardware. 
+Position the camera to tightly frame the subject in your garden you wish to monitor.
+
+From another machine on the local network, access the Flask application using a browser to navigate to KINDBOT_IP:5000 to view the camera stream, review environmental statistics, and control your Kindbot device.
+
+
+# Contributing
+
+Have an idea for improvements? Reach out by raising an issue.
+
+# License
+
+This project is released under the GNU AGPLv3, a copyleft license granting broad permissions while disallowing the distribution of a closed source version of this work.
+See more details in the LICENSE.md file.

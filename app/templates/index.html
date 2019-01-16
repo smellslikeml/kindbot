@@ -1,61 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>KindBot</title>
-		<meta name="description" content="KindBot: Track your grow" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="../static/css/default.css" />
-		<link rel="stylesheet" type="text/css" href="../static/css/component.css" />
-		<link rel="stylesheet" type="text/css" href="../static/css/flaticon.css" />
-		<script src="../static/js/modernizr.custom.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<header class="clearfix">
-				<span>Track your grow</span>
-				<h1>KindBot</h1>
-				<nav>
-					<!--<a href="http://tympanus.net/Blueprints/ViewModeSwitch/" class="bp-icon bp-icon-prev" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
-				        <a href="" class="bp-icon bp-icon-next" data-info="next Blueprint"><span>Next Blueprint</span></a>
-					<a href="http://tympanus.net/codrops/?p=15657" class="bp-icon bp-icon-drop" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
-					<a href="http://tympanus.net/codrops/category/blueprints/" class="bp-icon bp-icon-archive" data-info="Blueprints archive"><span>Go to the archive</span></a>-->
-				</nav>
-			</header>	
-			<div class="main">
-				<ul class="cbp-ig-grid">
-					<li>
-						<a href="{{ url_for('dashboard') }}">
-							<span class="cbp-ig-icon flaticon-leaf"></span>
-							<h3 class="cbp-ig-title">Dashboard</h3>
-							<span class="cbp-ig-category">Track your stats</span>
-						</a>
-					</li>
-					<li>
-						<a href="{{ url_for('camera') }}">
-							<span class="cbp-ig-icon flaticon-photo-camera"></span>
-							<h3 class="cbp-ig-title">Camera</h3>
-							<span class="cbp-ig-category">Access photos</span>
-						</a>
-					</li>
-					<li>
-						<a href="{{ url_for('automate') }}">
-							<span class="cbp-ig-icon flaticon-nature"></span>
-							<h3 class="cbp-ig-title">Automate</h3>
-							<span class="cbp-ig-category">Manage your smartplugs</span>
-						</a>
-					</li>
-					<li>
-						<a href="{{ url_for('settings') }}">
-							<span class="cbp-ig-icon flaticon-settings"></span>
-							<h3 class="cbp-ig-title">Settings</h3>
-							<span class="cbp-ig-category">Manage your account</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</body>
+<html>
+  <head>
+    <title>Video Streaming Demonstration</title>
+  </head>
+  <body>
+    <h1>Kindbot: Garden Visually</h1>
+    <img src="{{ url_for('video_feed') }}">
+  </body>
 </html>
